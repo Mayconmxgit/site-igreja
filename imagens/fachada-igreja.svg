@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 900" role="img" aria-label="Fachada ilustrativa da igreja">
+  <defs>
+    <linearGradient id="ceu" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#2d8a79"/>
+      <stop offset="1" stop-color="#255b8e"/>
+    </linearGradient>
+    <linearGradient id="luz" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0" stop-color="#f2c166"/>
+      <stop offset="1" stop-color="#c18a35"/>
+    </linearGradient>
+  </defs>
+  <rect width="1400" height="900" fill="url(#ceu)"/>
+  <circle cx="1090" cy="170" r="90" fill="#f3d27f" opacity=".85"/>
+  <path d="M0 690 C220 610 340 680 520 620 C720 550 900 625 1400 520 L1400 900 L0 900 Z" fill="#123f37" opacity=".4"/>
+  <path d="M165 735 L700 360 L1235 735 Z" fill="#f7f4ed"/>
+  <path d="M280 735 L700 465 L1120 735 Z" fill="#ffffff"/>
+  <rect x="370" y="640" width="660" height="160" fill="#f7f4ed"/>
+  <rect x="635" y="635" width="130" height="165" rx="6" fill="#123f37"/>
+  <rect x="420" y="662" width="105" height="80" rx="6" fill="#245b8f" opacity=".85"/>
+  <rect x="875" y="662" width="105" height="80" rx="6" fill="#245b8f" opacity=".85"/>
+  <rect x="685" y="228" width="30" height="190" fill="url(#luz)"/>
+  <rect x="622" y="290" width="156" height="28" fill="url(#luz)"/>
+  <rect x="305" y="780" width="790" height="35" fill="#c18a35"/>
+</svg>

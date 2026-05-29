@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" role="img" aria-label="Imagem ilustrativa de homens">
+  <rect width="800" height="600" fill="#236c5a"/>
+  <rect x="80" y="95" width="640" height="350" rx="18" fill="#f7f4ed"/>
+  <rect x="120" y="135" width="560" height="270" rx="12" fill="#ffffff"/>
+  <circle cx="280" cy="250" r="58" fill="#245b8f"/>
+  <circle cx="520" cy="250" r="58" fill="#c18a35"/>
+  <path d="M185 390 C225 305 335 305 375 390 Z" fill="#245b8f"/>
+  <path d="M425 390 C465 305 575 305 615 390 Z" fill="#c18a35"/>
+  <text x="50" y="530" fill="#ffffff" font-family="Arial" font-size="54" font-weight="700">Homens</text>
+</svg>

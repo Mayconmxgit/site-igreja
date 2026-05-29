@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Igreja Batista Calvário Ipê</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topo">
+    <nav class="menu" aria-label="Menu principal">
+      <a class="marca" href="#inicio">Igreja Batista Calvário Ipê</a>
+
+      <button class="menu-botao" type="button" aria-label="Abrir menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <ul class="menu-links">
+        <li><a href="#inicio">Início</a></li>
+        <li><a href="#sobre">Sobre</a></li>
+        <li><a href="#oracao">Pedidos de Orações</a></li>
+        <li><a href="#eventos">Eventos</a></li>
+        <li><a href="#live">Live</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section id="inicio" class="hero">
+      <div class="hero-conteudo">
+        <p class="destaque">Lugar de Comunhão</p>
+        <h1>Igreja Batista Calvário Ipê</h1>
+        <p>Participe dos nossos cultos presencial e online, envie seu pedido de oração e acompanhe nossos eventos ao longo do ano.</p>
+
+        <div class="acoes">
+          <a class="botao primario" href="#oracao">Enviar pedido</a>
+          <a class="botao secundario" href="#live">Assistir live</a>
+        </div>
+      </div>
+
+      <div class="info-culto" aria-label="Informações dos cultos">
+        <article>
+          <h2>Horários de Culto</h2>
+          <p>Domingo: EBD - 9h / Culto de Celebrção - 19h </p>
+          <p>Quinta-feira: 20h</p>
+          <p>Sábado: 18h - Jovens</p>
+        </article>
+        <article>
+          <h2>Endereço</h2>
+          <p>Av. Luíz Gonçalves Lessa, 1275 </p>
+          <p>Jardim Ipê - Governador Valadares /MG</p>
+          <p>CEP: 35041-380</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="live" class="secao faixa">
+      <div class="container duas-colunas live-area">
+        <div>
+          <p class="destaque">Live</p>
+          <h2>Acompanhe nossos cultos ao vivo</h2>
+          <h3>Seja um semeador</h3>
+          <p>Aponte a câmera do seu celular para o QR Code abaixo e faça sua doação.</p>
+          <img src="imagens/qrcode.jpeg" alt="QR Code para doação" class="qr-code">
+        </div>
+
+        <div class="video-box">
+          <iframe
+            src="https://www.youtube.com/embed/live_stream?channel=UC-Jrtg3PhSIx02OL8b88AnQ"
+            title="Live da igreja no YouTube"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen>
+          </iframe>
+        </div>
+      </div>
+    </section>
+
+    <section id="sobre" class="secao">
+      <div class="container duas-colunas">
+        <div>
+          <p class="destaque">Sobre nós</p>
+          <h2>Uma igreja para toda a família</h2>
+          <p>
+            Somos uma comunidade cristã dedicada ao ensino da Palavra, à oração, ao acolhimento
+            e ao serviço. Nosso desejo é caminhar com pessoas de todas as idades, fortalecendo
+            famílias e anunciando esperança.
+          </p>
+        </div>
+
+        <div class="painel-sobre">
+          <div>
+            <strong>Missão</strong>
+            <span>Amar, servir e anunciar Jesus.</span>
+          </div>
+          <div>
+            <strong>Visão</strong>
+            <span>Formar discípulos comprometidos com Deus.</span>
+          </div>
+          <div>
+            <strong>Valores</strong>
+            <span>Fé, comunhão, cuidado e serviço.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="eventos" class="secao">
+      <div class="container">
+        <p class="destaque">Eventos</p>
+        <h2>Calendário anual</h2>
+
+        <div class="calendario" id="calendarioEventos" aria-label="Calendário de eventos da igreja"></div>
+
+        <div class="topicos-eventos">
+          <button class="topico ativo" type="button" data-topico="jovens">Jovens</button>
+          <button class="topico" type="button" data-topico="homens">Homens</button>
+          <button class="topico" type="button" data-topico="mulheres">Mulheres</button>
+          <button class="topico" type="button" data-topico="criancas">Crianças</button>
+          <button class="topico" type="button" data-topico="adolescentes">Adolescentes</button>
+        </div>
+
+        <div class="galeria" id="galeriaEventos" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <section id="oracao" class="secao faixa">
+      <div class="container">
+        <p class="destaque">Pedidos de orações</p>
+        <h2>Compartilhe seu pedido conosco</h2>
+        <form id="formOracao" class="formulario">
+          <div class="campo">
+            <label for="nome">Nome</label>
+            <input id="nome" name="nome" type="text" placeholder="Seu nome" required>
+          </div>
+
+          <div class="campo">
+            <label for="email">E-mail</label>
+            <input id="email" name="email" type="email" placeholder="seuemail@exemplo.com" >
+          </div>
+
+          <div class="campo">
+            <label for="telefone">Telefone</label>
+            <input id="telefone" name="telefone" type="tel" placeholder="(00) 00000-0000">
+          </div>
+
+          <div class="campo campo-completo">
+            <label for="pedido">Pedido de oração</label>
+            <textarea id="pedido" name="pedido" rows="6" placeholder="Escreva seu pedido aqui" required></textarea>
+          </div>
+
+          <button class="botao primario" type="submit">Enviar Mensagem</button>
+          <p id="mensagemForm" class="mensagem-form" role="status"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="rodape">
+    <p>&copy; 2026 Igreja Batista Calvário Ipê. Todos os direitos reservados.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

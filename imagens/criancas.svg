@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" role="img" aria-label="Imagem ilustrativa de crianças">
+  <rect width="800" height="600" fill="#f3d27f"/>
+  <circle cx="145" cy="120" r="70" fill="#ffffff" opacity=".75"/>
+  <circle cx="655" cy="150" r="85" fill="#ffffff" opacity=".75"/>
+  <path d="M0 455 C170 350 275 480 415 380 C565 275 665 385 800 320 L800 600 L0 600 Z" fill="#245b8f"/>
+  <circle cx="270" cy="255" r="48" fill="#f7f4ed"/>
+  <circle cx="405" cy="225" r="52" fill="#f7f4ed"/>
+  <circle cx="535" cy="260" r="46" fill="#f7f4ed"/>
+  <path d="M190 430 C225 330 315 330 350 430 Z" fill="#236c5a"/>
+  <path d="M325 430 C365 315 445 315 485 430 Z" fill="#c18a35"/>
+  <path d="M465 430 C500 330 575 330 610 430 Z" fill="#236c5a"/>
+  <text x="50" y="95" fill="#123f37" font-family="Arial" font-size="54" font-weight="700">Crianças</text>
+</svg>

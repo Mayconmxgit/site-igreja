@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" role="img" aria-label="Imagem ilustrativa de mulheres">
+  <rect width="800" height="600" fill="#f7f4ed"/>
+  <circle cx="650" cy="115" r="82" fill="#c18a35"/>
+  <path d="M0 455 C145 360 245 470 390 385 C545 295 650 390 800 320 L800 600 L0 600 Z" fill="#236c5a"/>
+  <circle cx="310" cy="230" r="58" fill="#245b8f"/>
+  <circle cx="485" cy="230" r="58" fill="#123f37"/>
+  <path d="M205 425 C250 315 370 315 415 425 Z" fill="#245b8f"/>
+  <path d="M380 425 C425 315 545 315 590 425 Z" fill="#123f37"/>
+  <text x="50" y="95" fill="#123f37" font-family="Arial" font-size="54" font-weight="700">Mulheres</text>
+</svg>

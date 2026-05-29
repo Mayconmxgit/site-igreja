@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" role="img" aria-label="Imagem ilustrativa de adolescentes">
+  <rect width="800" height="600" fill="#123f37"/>
+  <path d="M0 430 C180 360 250 450 420 360 C560 285 680 350 800 295 L800 600 L0 600 Z" fill="#245b8f"/>
+  <rect x="120" y="130" width="560" height="300" rx="20" fill="#f7f4ed"/>
+  <circle cx="300" cy="250" r="55" fill="#236c5a"/>
+  <circle cx="500" cy="250" r="55" fill="#c18a35"/>
+  <path d="M210 390 C250 305 350 305 390 390 Z" fill="#236c5a"/>
+  <path d="M410 390 C450 305 550 305 590 390 Z" fill="#c18a35"/>
+  <text x="50" y="530" fill="#ffffff" font-family="Arial" font-size="54" font-weight="700">Adolescentes</text>
+</svg>

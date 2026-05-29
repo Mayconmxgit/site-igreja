@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" role="img" aria-label="Imagem ilustrativa de jovens">
+  <rect width="800" height="600" fill="#245b8f"/>
+  <circle cx="640" cy="120" r="80" fill="#c18a35"/>
+  <path d="M0 440 C160 360 260 470 410 390 C540 320 640 360 800 300 L800 600 L0 600 Z" fill="#123f37" opacity=".55"/>
+  <circle cx="270" cy="250" r="50" fill="#f7f4ed"/>
+  <circle cx="400" cy="220" r="56" fill="#f7f4ed"/>
+  <circle cx="535" cy="255" r="50" fill="#f7f4ed"/>
+  <path d="M190 430 C230 335 315 335 350 430 Z" fill="#f7f4ed"/>
+  <path d="M315 430 C355 320 455 320 495 430 Z" fill="#f7f4ed"/>
+  <path d="M460 430 C500 335 585 335 620 430 Z" fill="#f7f4ed"/>
+  <text x="50" y="95" fill="#ffffff" font-family="Arial" font-size="54" font-weight="700">Jovens</text>
+</svg>
