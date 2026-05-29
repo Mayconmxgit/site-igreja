@@ -1,14 +1,13 @@
 :root {
-  --verde: #236c5a;
-  --verde-escuro: rgba(190, 101,42, 0.88);
-  --azul: #245b8f;
-  --dourado: #c18a35;
-  --claro: #f7f4ed;
+  --verde: #1a574b;
+  --verde-escuro: #0c2f2a;
+  --azul: #1d466f;
+  --dourado: #a9742b;
+  --claro: #eeebe4;
   --branco: #ffffff;
-  --texto: #24312f;
-  --suave: #eef3ef;
-  --sombra: 0 18px 45px rgba(18, 63, 55, 0.16);
-  --laranja: rgba(190, 101, 42, 0.815);
+  --texto: #1c2927;
+  --suave: #e4ebe7;
+  --sombra: 0 18px 45px rgba(12, 47, 42, 0.22);
 }
 
 * {
@@ -36,8 +35,8 @@ a {
   position: sticky;
   top: 0;
   z-index: 20;
-  background: rgba(190, 101, 42, 0.842);
-  box-shadow: 0 1px 18px rgba(0, 0, 0, 0.08);
+  background: rgba(246, 246, 242, 0.97);
+  box-shadow: 0 1px 18px rgba(12, 47, 42, 0.12);
 }
 
 .menu {
@@ -53,7 +52,7 @@ a {
 .marca {
   font-size: 1.15rem;
   font-weight: 800;
-  color: var(--texto);
+  color: var(--verde-escuro);
 }
 
 .menu-links {
@@ -67,7 +66,7 @@ a {
 
 .menu-links a {
   font-weight: 700;
-  color:var(--texto);
+  color: #263c38;
 }
 
 .menu-links a:hover {
@@ -98,11 +97,11 @@ a {
   display: grid;
   grid-template-columns: minmax(0, 1fr);
   align-items: end;
-  color: var(--texto);
+  color: var(--branco);
  
   background:
      url("imagens/logo-ibc.png") right top no-repeat,
-    linear-gradient(90deg, rgba(160, 72, 31, 0.95), rgba(177, 73, 25, 0.685));
+    linear-gradient(90deg, rgba(12, 47, 42, 0.94), rgba(29, 70, 111, 0.72));
   background-size: 50% auto, cover;
 }
 
@@ -126,7 +125,7 @@ a {
 
 .destaque {
   margin: 0 0 8px;
-  color: var(--texto);
+  color: var(--dourado);
   font-weight: 800;
   text-transform: uppercase;
   letter-spacing: 0;
@@ -152,7 +151,7 @@ a {
 }
 
 .primario {
-  background: var(--laranja);
+  background: var(--dourado);
   color: #1c1812;
 }
 
@@ -239,7 +238,7 @@ a {
 
 .painel-sobre div {
   padding: 20px;
-  border-left: 5px solid var(--laranja);
+  border-left: 5px solid var(--verde);
 }
 
 .painel-sobre strong,
@@ -248,7 +247,7 @@ a {
 }
 
 .painel-sobre strong {
-  color: var(--laranja);
+  color: var(--verde-escuro);
   font-size: 1.1rem;
 }
 
@@ -276,11 +275,11 @@ label {
 input,
 textarea {
   width: 100%;
-  border: 1px solid #ccd8d3;
+  border: 1px solid #b9c9c3;
   border-radius: 6px;
   padding: 13px 14px;
   font: inherit;
-  background: #fbfdfc;
+  background: #f7faf8;
 }
 
 textarea {
@@ -291,13 +290,13 @@ textarea {
   grid-column: 1 / -1;
   margin: 0;
   font-weight: 700;
-  color: var(--laranja);
+  color: var(--verde);
 }
 
 .calendario {
   overflow: hidden;
   margin-top: 24px;
-  border: 1px solid #e1e8e5;
+  border: 1px solid #d4ded9;
 }
 
 .calendario-cabecalho,
@@ -307,7 +306,7 @@ textarea {
 }
 
 .calendario-cabecalho {
-  background: var(--laranja);
+  background: var(--verde-escuro);
   color: var(--branco);
   font-weight: 800;
 }
@@ -318,11 +317,11 @@ textarea {
 }
 
 .calendario-linha {
-  border-top: 1px solid #e1e8e5;
+  border-top: 1px solid #d4ded9;
 }
 
 .calendario-linha:nth-child(odd) {
-  background: #fbfcfb;
+  background: #f5f8f6;
 }
 
 .topicos-eventos {
@@ -334,7 +333,7 @@ textarea {
 
 .topico {
   min-height: 42px;
-  border: 1px solid #cddbd6;
+  border: 1px solid #b7c8c1;
   border-radius: 6px;
   padding: 10px 16px;
   background: var(--branco);
@@ -344,8 +343,9 @@ textarea {
 }
 
 .topico.ativo {
-  background: var(--laranja);
+  background: var(--verde);
   color: var(--branco);
+  border-color: var(--verde);
 }
 
 .galeria {
@@ -358,7 +358,7 @@ textarea {
   overflow: hidden;
   border-radius: 8px;
   background: var(--branco);
-  box-shadow: 0 10px 30px rgba(18, 63, 55, 0.12);
+  box-shadow: 0 10px 30px rgba(12, 47, 42, 0.16);
 }
 
 .foto-card img {
