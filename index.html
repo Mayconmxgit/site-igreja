@@ -19,7 +19,7 @@
 
       <ul class="menu-links">
         <li><a href="#inicio">Início</a></li>
-        <li><a href="#sobre">Sobre</a></li>
+        <!-- <li><a href="#sobre">Sobre</a></li> -->
         <li><a href="#oracao">Pedidos de Orações</a></li>
         <li><a href="#eventos">Eventos</a></li>
         <li><a href="#live">Live</a></li>
@@ -64,6 +64,7 @@
           <h3>Seja um semeador</h3>
           <p>Aponte a câmera do seu celular para o QR Code abaixo e faça sua doação.</p>
           <img src="imagens/qrcode.jpeg" alt="QR Code para doação" class="qr-code">
+          <label>Pix: 22.057.988/0001-68</label>
         </div>
 
         <div class="video-box">
@@ -77,7 +78,7 @@
       </div>
     </section>
 
-    <section id="sobre" class="secao">
+    <!-- <section id="sobre" class="secao">
       <div class="container duas-colunas">
         <div>
           <p class="destaque">Sobre nós</p>
@@ -104,12 +105,29 @@
           </div>
         </div>
       </div>
-    </section>
+    </section>-->
 
     <section id="eventos" class="secao">
       <div class="container">
         <p class="destaque">Eventos</p>
         <h2>Calendário anual</h2>
+
+        <div class="filtro-mes">
+          <label for="filtroMes">Pesquisar por mês</label>
+          <select id="filtroMes" aria-label="Filtrar eventos por mês">
+            <option value="Todos">Todos os meses</option>
+            <option value="Janeiro">Janeiro</option>
+            <option value="Fevereiro">Fevereiro</option>
+            <option value="Março">Março</option>
+            <option value="Abril">Abril</option>
+            <option value="Maio">Maio</option>
+            <option value="Junho">Junho</option>
+            <option value="Julho">Julho</option>
+            <option value="Agosto">Agosto</option>
+            <option value="Setembro">Setembro</option>
+            <option value="Outubro">Outubro</option>
+          </select>
+        </div>
 
         <div class="calendario" id="calendarioEventos" aria-label="Calendário de eventos da igreja"></div>
 

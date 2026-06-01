@@ -207,6 +207,12 @@ a {
   border-radius: 18px;
 }
 
+.live-area .qr-code + label {
+  display: block;
+  margin-top: 14px;
+  font-weight: 700;
+  color: var(--verde-escuro);
+}
 
 .container h2 {
   margin: 0 0 20px;
@@ -258,6 +264,28 @@ a {
   padding: 24px;
 }
 
+.filtro-mes {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.filtro-mes label {
+  font-weight: 800;
+  color: var(--verde-escuro);
+}
+
+.filtro-mes select {
+  min-width: 220px;
+  border: 1px solid #b9c9c3;
+  border-radius: 6px;
+  padding: 12px 14px;
+  font: inherit;
+  background: #f7faf8;
+}
+
 .campo {
   display: grid;
   gap: 7px;
@@ -294,9 +322,11 @@ textarea {
 }
 
 .calendario {
-  overflow: hidden;
   margin-top: 24px;
   border: 1px solid #d4ded9;
+  max-height: 420px;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
 .calendario-cabecalho,
