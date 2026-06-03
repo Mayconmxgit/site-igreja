@@ -233,6 +233,7 @@ function montarGaleria(topico) {
 function abrirLightbox(src, index = 0) {
   lightboxImage.src = src;
   lightboxImage.alt = "Foto de evento ampliada";
+  lightboxImage.classList.remove("zoomed");
   indiceAtual = typeof index === "number" ? index : indiceAtual;
   lightbox.classList.add("ativo");
   lightbox.setAttribute("aria-hidden", "false");
@@ -244,6 +245,7 @@ function fecharLightbox() {
   lightbox.setAttribute("aria-hidden", "true");
   lightboxImage.src = "";
   lightboxImage.alt = "";
+  lightboxImage.classList.remove("zoomed");
   document.body.style.overflow = "";
 }
 
@@ -256,6 +258,10 @@ function mostrarFoto(index) {
   }
   const foto = galeriaAtual[index];
   abrirLightbox(foto.imagem, index);
+}
+
+function toggleZoom() {
+  lightboxImage.classList.toggle("zoomed");
 }
 
 function fotoAnterior() {
@@ -282,6 +288,11 @@ lightbox.addEventListener("click", (evento) => {
   }
 });
 
+lightboxImage.addEventListener("click", (evento) => {
+  evento.stopPropagation();
+  toggleZoom();
+});
+
 document.addEventListener("keydown", (evento) => {
   if (!lightbox.classList.contains("ativo")) return;
 
@@ -300,9 +311,12 @@ document.addEventListener("keydown", (evento) => {
 });
 
 galeria.addEventListener("click", (evento) => {
-  const imagem = evento.target.closest("img");
+  const target = evento.target;
+  const isImage = target.tagName && target.tagName.toLowerCase() === "img";
+  const imagem = isImage ? target : (target.closest ? target.closest("img") : null);
   if (!imagem) return;
-  const index = Number(imagem.dataset.index);
+
+  const index = Number(imagem.dataset.index || Array.prototype.indexOf.call(galeria.querySelectorAll("img"), imagem));
   abrirLightbox(imagem.src, index);
 });
 
