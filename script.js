@@ -142,32 +142,19 @@ const eventos = [
   { mes: "Outubro", data: "20", titulo: "Mulheres de Fé - Projeto Mulheres de Palavra – 19:30h.", publico: "Mulheres" }
 ];
 
+function criarGaleriaComPadrao(caminhoBase, quantidade, tituloBase) {
+  return Array.from({ length: quantidade }, (_, i) => ({
+    titulo: `${tituloBase} ${i + 1}`,
+    imagem: `${caminhoBase}/${i + 1}.jpg`
+  })); 
+}
+
 const galerias = {
-  jovens: [
-    { titulo: "Culto de jovens", imagem: "imagens/jovens.svg" },
-    { titulo: "Louvor jovem", imagem: "imagens/jovens.svg" },
-    { titulo: "Comunhão", imagem: "imagens/jovens.svg" }
-  ],
-  homens: [
-    { titulo: "Café dos homens", imagem: "imagens/homens.svg" },
-    { titulo: "Estudo bíblico", imagem: "imagens/homens.svg" },
-    { titulo: "Serviço e comunhão", imagem: "imagens/homens.svg" }
-  ],
-  mulheres: [
-    { titulo: "Encontro de mulheres", imagem: "imagens/mulheres.svg" },
-    { titulo: "Tarde de oração", imagem: "imagens/mulheres.svg" },
-    { titulo: "Ministério de cuidado", imagem: "imagens/mulheres.svg" }
-  ],
-  criancas: [
-    { titulo: "Escola bíblica infantil", imagem: "imagens/criancas.svg" },
-    { titulo: "Dia das crianças", imagem: "imagens/criancas.svg" },
-    { titulo: "Louvor infantil", imagem: "imagens/criancas.svg" }
-  ],
-  adolescentes: [
-    { titulo: "Encontro teen", imagem: "imagens/adolescentes.svg" },
-    { titulo: "Dinâmicas em grupo", imagem: "imagens/adolescentes.svg" },
-    { titulo: "Noite de adoração", imagem: "imagens/adolescentes.svg" }
-  ]
+  jovens: criarGaleriaComPadrao("imagens/eventos/jovens", 8, "Jovem"),
+  homens: criarGaleriaComPadrao("imagens/eventos/homens", 8, "Homens"),
+  mulheres: criarGaleriaComPadrao("imagens/eventos/mulheres", 8, "Mulheres"),
+  criancas: criarGaleriaComPadrao("imagens/eventos/criancas", 8, "Crianças"),
+  adolescentes: criarGaleriaComPadrao("imagens/eventos/adolescentes", 8, "Adolescentes")
 };
 
 
@@ -230,8 +217,8 @@ function montarCalendario(mesSelecionado = "todos") {
 function montarGaleria(topico) {
   galeria.innerHTML = galerias[topico].map((foto) => `
     <article class="foto-card">
-      <img src="${foto.imagem}" alt="${foto.titulo}">
-      <h3>${foto.titulo}</h3>
+      <img src="${foto.imagem}" alt="${foto.titulo}" onerror="if (this.src.endsWith('.jpg')) this.src = this.src.slice(0, -4) + '.png';">
+      
     </article>
   `).join("");
 }
