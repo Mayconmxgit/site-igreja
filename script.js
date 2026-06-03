@@ -163,6 +163,10 @@ const menuLinks = document.querySelector(".menu-links");
 const calendario = document.querySelector("#calendarioEventos");
 const filtroMes = document.querySelector("#filtroMes");
 const galeria = document.querySelector("#galeriaEventos");
+const lightbox = document.querySelector("#lightbox");
+const lightboxImage = document.querySelector("#lightboxImage");
+const lightboxCaption = document.querySelector("#lightboxCaption");
+const lightboxClose = document.querySelector(".lightbox-close");
 const topicos = document.querySelectorAll(".topico");
 const formOracao = document.querySelector("#formOracao");
 const mensagemForm = document.querySelector("#mensagemForm");
@@ -217,11 +221,48 @@ function montarCalendario(mesSelecionado = "todos") {
 function montarGaleria(topico) {
   galeria.innerHTML = galerias[topico].map((foto) => `
     <article class="foto-card">
-      <img src="${foto.imagem}" alt="${foto.titulo}" onerror="if (this.src.endsWith('.jpg')) this.src = this.src.slice(0, -4) + '.png';">
-      
+      <img src="${foto.imagem}" alt="${foto.titulo}" data-titulo="${foto.titulo}" onerror="if (this.src.endsWith('.jpg')) this.src = this.src.slice(0, -4) + '.png';">
     </article>
   `).join("");
 }
+
+function abrirLightbox(src, titulo) {
+  lightboxImage.src = src;
+  lightboxImage.alt = titulo;
+  lightboxCaption.textContent = titulo;
+  lightbox.classList.add("ativo");
+  lightbox.setAttribute("aria-hidden", "false");
+  document.body.style.overflow = "hidden";
+}
+
+function fecharLightbox() {
+  lightbox.classList.remove("ativo");
+  lightbox.setAttribute("aria-hidden", "true");
+  lightboxImage.src = "";
+  lightboxImage.alt = "";
+  lightboxCaption.textContent = "";
+  document.body.style.overflow = "";
+}
+
+lightboxClose.addEventListener("click", fecharLightbox);
+lightbox.addEventListener("click", (evento) => {
+  if (evento.target === lightbox) {
+    fecharLightbox();
+  }
+});
+
+document.addEventListener("keydown", (evento) => {
+  if (evento.key === "Escape" && lightbox.classList.contains("ativo")) {
+    fecharLightbox();
+  }
+});
+
+galeria.addEventListener("click", (evento) => {
+  const imagem = evento.target.closest("img");
+  if (!imagem) return;
+  abrirLightbox(imagem.src, imagem.dataset.titulo || imagem.alt);
+});
+
 const numeroWhats = "5533999445802"; // Número no formato internacional sem '+' nem espaços
 
 formOracao.addEventListener("submit", (evento) => {
