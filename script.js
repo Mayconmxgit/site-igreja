@@ -142,19 +142,18 @@ const eventos = [
   { mes: "Outubro", data: "20", titulo: "Mulheres de Fé - Projeto Mulheres de Palavra – 19:30h.", publico: "Mulheres" }
 ];
 
-function criarGaleriaComPadrao(caminhoBase, quantidade, tituloBase) {
+function criarGaleriaComPadrao(caminhoBase, quantidade) {
   return Array.from({ length: quantidade }, (_, i) => ({
-    titulo: `${tituloBase} ${i + 1}`,
     imagem: `${caminhoBase}/${i + 1}.jpg`
-  })); 
+  }));
 }
 
 const galerias = {
-  jovens: criarGaleriaComPadrao("imagens/eventos/jovens", 8, "Jovem"),
-  homens: criarGaleriaComPadrao("imagens/eventos/homens", 8, "Homens"),
-  mulheres: criarGaleriaComPadrao("imagens/eventos/mulheres", 8, "Mulheres"),
-  criancas: criarGaleriaComPadrao("imagens/eventos/criancas", 8, "Crianças"),
-  adolescentes: criarGaleriaComPadrao("imagens/eventos/adolescentes", 8, "Adolescentes")
+  jovens: criarGaleriaComPadrao("imagens/eventos/jovens", 15),
+  homens: criarGaleriaComPadrao("imagens/eventos/homens", 15),
+  mulheres: criarGaleriaComPadrao("imagens/eventos/mulheres", 15),
+  criancas: criarGaleriaComPadrao("imagens/eventos/criancas", 15),
+  adolescentes: criarGaleriaComPadrao("imagens/eventos/adolescentes", 15)
 };
 
 
@@ -165,11 +164,15 @@ const filtroMes = document.querySelector("#filtroMes");
 const galeria = document.querySelector("#galeriaEventos");
 const lightbox = document.querySelector("#lightbox");
 const lightboxImage = document.querySelector("#lightboxImage");
-const lightboxCaption = document.querySelector("#lightboxCaption");
 const lightboxClose = document.querySelector(".lightbox-close");
+const lightboxPrev = document.querySelector(".lightbox-prev");
+const lightboxNext = document.querySelector(".lightbox-next");
 const topicos = document.querySelectorAll(".topico");
 const formOracao = document.querySelector("#formOracao");
 const mensagemForm = document.querySelector("#mensagemForm");
+
+let galeriaAtual = [];
+let indiceAtual = 0;
 
 menuBotao.addEventListener("click", () => {
   const aberto = menuLinks.classList.toggle("aberto");
@@ -219,17 +222,18 @@ function montarCalendario(mesSelecionado = "todos") {
 }
 
 function montarGaleria(topico) {
-  galeria.innerHTML = galerias[topico].map((foto) => `
+  galeriaAtual = galerias[topico];
+  galeria.innerHTML = galeriaAtual.map((foto, index) => `
     <article class="foto-card">
-      <img src="${foto.imagem}" alt="${foto.titulo}" data-titulo="${foto.titulo}" onerror="if (this.src.endsWith('.jpg')) this.src = this.src.slice(0, -4) + '.png';">
+      <img src="${foto.imagem}" alt="Foto de evento" data-index="${index}" onerror="if (this.src.endsWith('.jpg')) this.src = this.src.slice(0, -4) + '.png';">
     </article>
   `).join("");
 }
 
-function abrirLightbox(src, titulo) {
+function abrirLightbox(src, index = 0) {
   lightboxImage.src = src;
-  lightboxImage.alt = titulo;
-  lightboxCaption.textContent = titulo;
+  lightboxImage.alt = "Foto de evento ampliada";
+  indiceAtual = typeof index === "number" ? index : indiceAtual;
   lightbox.classList.add("ativo");
   lightbox.setAttribute("aria-hidden", "false");
   document.body.style.overflow = "hidden";
@@ -240,11 +244,38 @@ function fecharLightbox() {
   lightbox.setAttribute("aria-hidden", "true");
   lightboxImage.src = "";
   lightboxImage.alt = "";
-  lightboxCaption.textContent = "";
   document.body.style.overflow = "";
 }
 
+function mostrarFoto(index) {
+  if (!galeriaAtual.length) return;
+  if (index < 0) {
+    index = galeriaAtual.length - 1;
+  } else if (index >= galeriaAtual.length) {
+    index = 0;
+  }
+  const foto = galeriaAtual[index];
+  abrirLightbox(foto.imagem, index);
+}
+
+function fotoAnterior() {
+  mostrarFoto(indiceAtual - 1);
+}
+
+function proximaFoto() {
+  mostrarFoto(indiceAtual + 1);
+}
+
 lightboxClose.addEventListener("click", fecharLightbox);
+lightboxPrev.addEventListener("click", (evento) => {
+  evento.stopPropagation();
+  fotoAnterior();
+});
+lightboxNext.addEventListener("click", (evento) => {
+  evento.stopPropagation();
+  proximaFoto();
+});
+
 lightbox.addEventListener("click", (evento) => {
   if (evento.target === lightbox) {
     fecharLightbox();
@@ -252,15 +283,27 @@ lightbox.addEventListener("click", (evento) => {
 });
 
 document.addEventListener("keydown", (evento) => {
-  if (evento.key === "Escape" && lightbox.classList.contains("ativo")) {
+  if (!lightbox.classList.contains("ativo")) return;
+
+  if (evento.key === "Escape") {
     fecharLightbox();
+    return;
+  }
+
+  if (evento.key === "ArrowRight") {
+    proximaFoto();
+  }
+
+  if (evento.key === "ArrowLeft") {
+    fotoAnterior();
   }
 });
 
 galeria.addEventListener("click", (evento) => {
   const imagem = evento.target.closest("img");
   if (!imagem) return;
-  abrirLightbox(imagem.src, imagem.dataset.titulo || imagem.alt);
+  const index = Number(imagem.dataset.index);
+  abrirLightbox(imagem.src, index);
 });
 
 const numeroWhats = "5533999445802"; // Número no formato internacional sem '+' nem espaços

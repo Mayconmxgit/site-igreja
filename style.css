@@ -382,6 +382,7 @@ textarea {
   display: flex;
   gap: 18px;
   overflow-x: auto;
+  overflow-y: hidden;
   padding-bottom: 8px;
   -webkit-overflow-scrolling: touch;
 }
@@ -391,8 +392,8 @@ textarea {
   border-radius: 8px;
   background: var(--branco);
   box-shadow: 0 10px 30px rgba(12, 47, 42, 0.16);
-  flex: 0 0 300px;
-  min-width: 260px;
+  flex: 0 0 620px;
+  min-width: 550px;
 }
 
 .foto-card img {
@@ -453,6 +454,35 @@ textarea {
 
 .lightbox-close:hover {
   background: rgba(255, 255, 255, 0.18);
+}
+
+.lightbox-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 48px;
+  height: 48px;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.12);
+  color: var(--claro);
+  font-size: 2rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lightbox-nav:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.lightbox-prev {
+  left: 18px;
+}
+
+.lightbox-next {
+  right: 18px;
 }
 
 .foto-card h3 {
@@ -532,6 +562,7 @@ textarea {
     display: flex;
     gap: 12px;
     overflow-x: auto;
+    overflow-y: hidden;
     padding-bottom: 8px;
   }
 
