@@ -379,12 +379,40 @@ textarea {
 }
 
 .galeria {
-  display: flex;
-  gap: 18px;
-  overflow-x: auto;
-  overflow-y: hidden;
-  padding-bottom: 8px;
-  -webkit-overflow-scrolling: touch;
+  display: grid;
+  grid-template-columns: auto minmax(420px, 620px) auto;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin: 18px auto 0;
+  max-width: 820px;
+}
+
+.galeria-carrossel {
+  width: 100%;
+  min-width: 420px;
+  max-width: 620px;
+  display: grid;
+  justify-items: center;
+}
+
+.galeria-nav {
+  width: 48px;
+  height: 48px;
+  border: 0;
+  border-radius: 50%;
+  background: var(--verde);
+  color: var(--branco);
+  font-size: 1.5rem;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.galeria-nav:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
 }
 
 .foto-card {
@@ -392,8 +420,8 @@ textarea {
   border-radius: 8px;
   background: var(--branco);
   box-shadow: 0 10px 30px rgba(12, 47, 42, 0.16);
-  flex: 0 0 520px;
-  min-width: 420px;
+  width: 100%;
+  max-width: auto;
 }
 
 .foto-card img {
@@ -403,6 +431,12 @@ textarea {
   display: block;
   object-fit: cover;
   cursor: zoom-in;
+}
+
+.galeria-vazia {
+  padding: 18px;
+  color: var(--verde-escuro);
+  font-weight: 700;
 }
 
 .lightbox {

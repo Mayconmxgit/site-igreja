@@ -162,6 +162,9 @@ const menuLinks = document.querySelector(".menu-links");
 const calendario = document.querySelector("#calendarioEventos");
 const filtroMes = document.querySelector("#filtroMes");
 const galeria = document.querySelector("#galeriaEventos");
+const galeriaCarrossel = document.querySelector("#galeriaCarrossel");
+const galeriaPrev = document.querySelector(".galeria-prev");
+const galeriaNext = document.querySelector(".galeria-next");
 const lightbox = document.querySelector("#lightbox");
 const lightboxImage = document.querySelector("#lightboxImage");
 const lightboxClose = document.querySelector(".lightbox-close");
@@ -186,8 +189,8 @@ menuLinks.addEventListener("click", (evento) => {
   }
 });
 
-function montarCalendario(mesSelecionado = "todos") {
-  const eventosFiltrados = mesSelecionado === "todos"
+function montarCalendario(mesSelecionado = "Todos") {
+  const eventosFiltrados = mesSelecionado === "Todos"
     ? eventos
     : eventos.filter((evento) => evento.mes === mesSelecionado);
 
@@ -223,11 +226,40 @@ function montarCalendario(mesSelecionado = "todos") {
 
 function montarGaleria(topico) {
   galeriaAtual = galerias[topico];
-  galeria.innerHTML = galeriaAtual.map((foto, index) => `
+  indiceAtual = 0;
+  renderGaleriaSlide();
+}
+
+function renderGaleriaSlide() {
+  if (!galeriaCarrossel) return;
+
+  if (!galeriaAtual.length) {
+    galeriaCarrossel.innerHTML = '<p class="galeria-vazia">Nenhuma foto disponível.</p>';
+    galeriaPrev.disabled = true;
+    galeriaNext.disabled = true;
+    return;
+  }
+
+  const foto = galeriaAtual[indiceAtual];
+  galeriaCarrossel.innerHTML = `
     <article class="foto-card">
-      <img src="${foto.imagem}" alt="Foto de evento" data-index="${index}" onerror="if (this.src.endsWith('.jpg')) this.src = this.src.slice(0, -4) + '.png';">
+      <img src="${foto.imagem}" alt="Foto de evento ${indiceAtual + 1}" data-index="${indiceAtual}" onerror="if (this.src.endsWith('.jpg')) this.src = this.src.slice(0, -4) + '.png';">
     </article>
-  `).join("");
+  `;
+
+  galeriaPrev.disabled = indiceAtual === 0;
+  galeriaNext.disabled = indiceAtual >= galeriaAtual.length - 1;
+}
+
+function navegarGaleria(index) {
+  if (!galeriaAtual.length) return;
+  if (index < 0) {
+    index = 0;
+  } else if (index >= galeriaAtual.length) {
+    index = galeriaAtual.length - 1;
+  }
+  indiceAtual = index;
+  renderGaleriaSlide();
 }
 
 function abrirLightbox(src, index = 0) {
@@ -282,6 +314,9 @@ lightboxNext.addEventListener("click", (evento) => {
   proximaFoto();
 });
 
+galeriaPrev.addEventListener("click", () => navegarGaleria(indiceAtual - 1));
+galeriaNext.addEventListener("click", () => navegarGaleria(indiceAtual + 1));
+
 lightbox.addEventListener("click", (evento) => {
   if (evento.target === lightbox) {
     fecharLightbox();
@@ -310,13 +345,13 @@ document.addEventListener("keydown", (evento) => {
   }
 });
 
-galeria.addEventListener("click", (evento) => {
+galeriaCarrossel.addEventListener("click", (evento) => {
   const target = evento.target;
   const isImage = target.tagName && target.tagName.toLowerCase() === "img";
   const imagem = isImage ? target : (target.closest ? target.closest("img") : null);
   if (!imagem) return;
 
-  const index = Number(imagem.dataset.index || Array.prototype.indexOf.call(galeria.querySelectorAll("img"), imagem));
+  const index = Number(imagem.dataset.index || Array.prototype.indexOf.call(galeriaCarrossel.querySelectorAll("img"), imagem));
   abrirLightbox(imagem.src, index);
 });
 
