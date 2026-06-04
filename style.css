@@ -8,6 +8,7 @@
   --texto: #1c2927;
   --suave: #e4ebe7;
   --sombra: 0 18px 45px rgba(12, 47, 42, 0.22);
+  --preto: #000000;
 }
 
 * {
@@ -421,7 +422,7 @@ textarea {
   background: var(--branco);
   box-shadow: 0 10px 30px rgba(12, 47, 42, 0.16);
   width: 100%;
-  max-width: 480px;
+  max-width: 380px;
 }
 
 .foto-card img {
@@ -599,33 +600,34 @@ textarea {
     padding: 12px 0;
   }
 
-  .hero {
-    min-height: auto;
-    padding-top: 82px;
-  }
-
-  .info-culto,
-  .duas-colunas,
-  .formulario {
-    grid-template-columns: 1fr;
-  }
-
   .galeria {
     display: flex;
-    gap: 12px;
-    overflow-x: auto;
-    overflow-y: hidden;
-    padding-bottom: 8px;
+    position: relative;
+    gap: 0;
+    overflow: hidden;
+    padding-bottom: 0;
+    justify-content: center;
   }
 
-  .galeria::-webkit-scrollbar {
-    height: 8px;
+  .galeria-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.50);
+    width: 40px;
+    height: 40px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--preto);
+    border-radius: 50%;
+    border: 0;
+    z-index: 10;
   }
 
-  .galeria::-webkit-scrollbar-thumb {
-    background: rgba(0,0,0,0.15);
-    border-radius: 6px;
-  }
+  .galeria-nav.galeria-prev { left: 8px; }
+  .galeria-nav.galeria-next { right: 8px; }
+  
 
   .calendario-cabecalho,
   .calendario-linha {
