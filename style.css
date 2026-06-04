@@ -627,7 +627,30 @@ textarea {
 
   .galeria-nav.galeria-prev { left: 8px; }
   .galeria-nav.galeria-next { right: 8px; }
-  
+
+  .info-culto,
+  .duas-colunas {
+    grid-template-columns: 1fr;
+  }
+
+  .info-culto {
+    gap: 16px;
+  }
+
+  .live-area {
+    display: grid;
+    gap: 24px;
+  }
+
+  .video-box {
+    aspect-ratio: auto;
+    width: 100%;
+    min-height: 220px;
+  }
+
+  .video-box iframe {
+    min-height: 220px;
+  }
 
   .calendario-cabecalho,
   .calendario-linha {
