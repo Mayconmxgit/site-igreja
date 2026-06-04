@@ -421,7 +421,7 @@ textarea {
   background: var(--branco);
   box-shadow: 0 10px 30px rgba(12, 47, 42, 0.16);
   width: 100%;
-  max-width: auto;
+  max-width: 480px;
 }
 
 .foto-card img {
