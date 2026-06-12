@@ -355,7 +355,7 @@ galeriaCarrossel.addEventListener("click", (evento) => {
   abrirLightbox(imagem.src, index);
 });
 
-const numeroWhats = "5533999445802"; // Número no formato internacional sem '+' nem espaços
+const numeroWhats = "5533987170661"; // Número no formato internacional sem '+' nem espaços
 
 formOracao.addEventListener("submit", (evento) => {
   evento.preventDefault();

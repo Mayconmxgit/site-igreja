@@ -103,7 +103,7 @@ a {
   background:
      url("imagens/logo-ibc.png") right top no-repeat,
     linear-gradient(90deg, rgba(12, 47, 42, 0.94), rgba(29, 70, 111, 0.72));
-  background-size: 50% auto, cover;
+  background-size: 45% auto, cover;
 }
 
 .hero-conteudo,
